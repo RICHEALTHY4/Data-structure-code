@@ -1,0 +1,53 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+/*
+you have three types of group a,b,c with the number each of them is m,n,break
+reverse the whole array
+*/
+void reverseRange(vector<int>& arr,int left, int right)
+{
+    while(left < right)
+    {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp; //only using one extra space
+        
+        left ++;
+        right--;
+    }
+    
+}
+
+void rearrange(vector<int>& arr, int m,int n, int k)
+{
+    //reverse A 
+    reverseRange(arr,0, m -1);
+    //reverse B 
+    reverseRange(arr,m, m + n -1);
+    //reverse C 
+    reverseRange(arr,m + n,m + n + k -1);
+    
+    //reverse the whole arr
+    reverseRange(arr,0, m + n + k -1);
+}
+
+int main()
+{
+    vector<int> arr = {
+        1,2,3,
+        21,22,
+        41,42,43
+    };
+    int m = 3;
+    int n = 2;
+    int k = 3;
+    rearrange(arr,m,n,k);
+    for(const int& x :arr)
+    {
+        cout<<x<<" ";
+    }
+    
+    return 0;
+}
