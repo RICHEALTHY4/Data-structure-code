@@ -11,14 +11,14 @@ void reverseRange(vector<int>& arr,int begin,int end)
 {
     stack<int> st;
     int i = begin;
-    int length = end - begin + 1 ;
-    while(i < end + 1)
+    //int length = end - begin + 1 ;
+    while(i <= end)
     {
         st.push(arr[i]);
         i++;
     }
     i = begin;
-    while(i < end + 1)
+    while(i <= end )
     {
         arr[i] = st.top();
         st.pop(); //standard stack pop() do not return vlaue
